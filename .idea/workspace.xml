@@ -26,11 +26,11 @@
       <file leaf-file-name="Feature2V2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Feature2V2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.056235">
-              <caret line="150" column="12" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
+            <state vertical-scroll-proportion="-3.3349633">
+              <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
               <folding>
-                <element signature="e#917#918#0" expanded="true" />
-                <element signature="e#943#944#0" expanded="true" />
+                <element signature="e#909#910#0" expanded="true" />
+                <element signature="e#935#936#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -511,12 +511,12 @@
       <updated>1447080268671</updated>
       <workItem from="1447080279159" duration="20000" />
       <workItem from="1447161073501" duration="3000" />
-      <workItem from="1447161181692" duration="13255000" />
+      <workItem from="1447161181692" duration="13590000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13278000" />
+    <option name="totallyTimeSpent" value="13613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -620,11 +620,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Feature2V2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.056235">
-          <caret line="150" column="12" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
+        <state vertical-scroll-proportion="-3.3349633">
+          <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
           <folding>
-            <element signature="e#917#918#0" expanded="true" />
-            <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#935#936#0" expanded="true" />
           </folding>
         </state>
       </provider>

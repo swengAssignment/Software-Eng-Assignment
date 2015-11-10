@@ -24,8 +24,8 @@ public class Feature2V2 {
     JTextField jTextFieldValue2;
     JLabel blankR4;
     //Row5 has elements
-    JTextField jTextFieldValue1Entered;
-    JTextField jTextFieldValue2Entered;
+    JLabel jTextFieldValue1Entered;
+    JLabel jTextFieldValue2Entered;
     JLabel minus;
     JLabel equals;
     JTextField answerLabel;
@@ -57,8 +57,8 @@ public class Feature2V2 {
          jTextFieldValue2 = new JTextField("3");
          blankR4 = new JLabel ("                                                                 ");
         //Row5 has elements
-         jTextFieldValue1Entered = new JTextField("5");
-         jTextFieldValue2Entered = new JTextField("3");
+         jTextFieldValue1Entered = new JLabel();
+         jTextFieldValue2Entered = new JLabel();
          minus = new JLabel ("Minus");
          equals = new JLabel ("equals");
          answerLabel = new JTextField("2");
@@ -145,16 +145,18 @@ public class Feature2V2 {
         @Override
         public void actionPerformed(ActionEvent e) {
             //JTextField f1 = new JTextField("-5");
-            String v1S = jTextFieldValue1Entered.getText();
+            String v1S = jTextFieldValue1.getText();
             intValue1 = Integer.parseInt(v1S);
 
-            
-            String v2S = jTextFieldValue2Entered.getText();
+
+            String v2S = jTextFieldValue2.getText();
              intValue2 = Integer.parseInt(v2S);
-             intAnswer = intValue1 = intValue2;
+             intAnswer = intValue1 - intValue2;
 
             String strAnswer = Integer.toString(intAnswer );
             answerLabel.setText(strAnswer);
+            jTextFieldValue1.setText(v1S);
+            jTextFieldValue2.setText(v2S);
             frame.setVisible(true);
         }
     }
