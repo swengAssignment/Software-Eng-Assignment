@@ -19,7 +19,7 @@ public class Feature2 {
         panel.setBorder(BorderFactory.createTitledBorder("GUI #1"));
         frame.add(panel);
 
-        panel.setLayout(new MigLayout("debug", "[]10[] ", "[] [] []" ));
+        panel.setLayout(new MigLayout("debug", "[]10[] ", "[] [] [] []" ));
         // panel.setLayout(new MigLayout("wrap 3"));
 
         JLabel firstnameLabel = new JLabel ("first name");
