@@ -29,7 +29,7 @@ public class Feature2V2 {
     JLabel minus;
     JLabel equals;
     JTextField answerLabel;
-    JLabel blankR5A;
+    JLabel blank;
     JLabel blankR5B;
     JLabel blankR5C;
     JFrame frame;
@@ -56,32 +56,35 @@ public class Feature2V2 {
         header = new JLabel ("math check subtraction lets you visualize how it's done");
         //Row 2 has 1 element
 
-         jLabelV1 = new JLabel ("Enter Value 1");
+         jLabelV1 = new JLabel ("              Enter Value 1:");
          jTextFieldValue1 = new JTextField( "5");
         //Row 4 has 3 element
-         jLabelV2 = new JLabel ("Enter Value 2");
+         jLabelV2 = new JLabel ("              Enter Value 2:");
          jTextFieldValue2 = new JTextField("3");
-         blankR4 = new JLabel ("                                                                 ");
         //Row5 has elements
          jTextFieldValue1Entered = new JTextField("0");
          jTextFieldValue2Entered = new JTextField("0");
-         minus = new JLabel ("Minus");
-         equals = new JLabel ("equals");
+         minus = new JLabel ("                    Minus       -    ");
+         equals = new JLabel ("                   Equals      =    ");
          answerLabel = new JTextField("2");
-         blankR5A = new JLabel ("   ");
-         blankR5B = new JLabel ("   ");
-         blankR5C = new JLabel ("   ");
          frame = new JFrame("My Frame");
+        blank = new JLabel("");
+        /****************************/
+        weHad = new JLabel("\t\t        We Had:");
+        weHadResult = new JTextField("");
+
+        weTook = new JLabel("\t\t        We Took:");
+        weTookResult = new JTextField("");
+
+        weHave = new JLabel("\t\t        We Have:");
+        weHaveResult = new JTextField("");
+        /*******************************/
         frame.setSize(700, 700);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          panel = new JPanel();
         panel.setBorder(BorderFactory.createTitledBorder("GUI #1"));
         frame.add(panel);
 
-//        JPanel panel2 = new JPanel();
-//        panel2.setBorder(BorderFactory.createTitledBorder("panel 2"));
-//        frame.add(panel2);
-        // 1  2  3  4  5  6   7  8
         //panel.setLayout(new MigLayout("debug", "[]10[] ", "[] [] [] [] [] [] [] []" ));
         panel.setLayout(new MigLayout("debug"));
         //panel2.setLayout(new MigLayout("debug", "[]10[] ", "[] [] [] [] [] [] [] []" ));
@@ -104,29 +107,42 @@ public class Feature2V2 {
         // detailsArea.setBorder(BorderFactory.createEtchedBorder());
 
 /**********************************************************************************/
-        //row1
-        //panel.add(header, "gapleft 20%, gapright 20%,  wrap");
-        panel.add(header,"span, pushx, growx, pushy, growy, gapleft 30%, gapright 10%, wrap");
+        //row 1
+        panel.add(header,"span, pushx, growx, pushy, growy, gapleft 20%, gapright 10%, wrap");
 
         /*************************************************/
-        panel.add(jLabelV1, "gap 10%, pushy, growy");
-        panel.add(jTextFieldValue1, "gaptop 10%, gapbottom 10%, pushx, growx, pushy, growy");
+        //row 2
+        panel.add(jLabelV1, " gaptop 10%, pushy, growy");
+
+        panel.add(jTextFieldValue1, "gaptop 10%, gapbottom 2%, pushx, growx, pushy, growy");
+        panel.add(blank, "span 1 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
 
         panel.add(jTextFieldValue1Entered, "span 1 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
         panel.add(minus, "span 1 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
         panel.add(jTextFieldValue2Entered, "span 2 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
-        panel.add(equals, "span 2 2,pushx, growx, gaptop 10%, gapbottom 10%");
+
+        panel.add(equals, "span 2 2,pushx, growx,  pushy, growy, gaptop 10%, gapbottom 10%");
         panel.add(answerLabel, "span 2 2, pushx, growx, , pushy, growy, wrap, gaptop 10%, gapbottom 10%");
 
-        panel.add(jLabelV2, "gap 10%, pushy, growy");
-        panel.add(jTextFieldValue2, "gaptop 10%, gapbottom 10%, pushx, growx, wrap, pushy, growy");
+        panel.add(jLabelV2, "shrink 70,  gapbottom 10%, pushy, growy");
+        panel.add(jTextFieldValue2, "gaptop 2%, gapbottom 10%, pushx, growx, wrap, pushy, growy");
         /***************************************************/
 
-        //Row 5
-        panel.add(showMeHowitsDoneButton,"gap 100, span, pushx, growx, pushy, growy, gapleft 10%, gapright 10%, wrap");
+        //Row 3
+        panel.add(showMeHowitsDoneButton,"gap 100, span, pushx, growx, pushy, growy, gapleft 10%, gapright 10%, gapbottom 10%, wrap");
         //panel.add(row3Col2B, "wrap");
 
-        
+        //row 4
+        panel.add(weHad, "shrink 40, pushx, growx,  pushy, growy");
+        panel.add(weHadResult,"pushx, growx,  pushy, growy, spanx, wrap");
+
+        //row 5
+        panel.add(weTook, "shrink 40, pushx, growx, pushy, growy");
+        panel.add(weTookResult,"pushx, growx, spanx,  pushy, growy, wrap");
+
+        //row 6
+        panel.add(weHave, "shrink 40, pushx, growx,  pushy, growy");
+        panel.add(weHaveResult,"pushx, growx, spanx,  pushy, growy, wrap");
 
         //frame.pack();
         frame.setVisible(true);
@@ -148,9 +164,32 @@ public class Feature2V2 {
              intAnswer = intValue1 - intValue2;
 
             String strAnswer = Integer.toString(intAnswer );
-            answerLabel.setText(strAnswer);
-            jTextFieldValue1Entered.setText(v1S);
-            jTextFieldValue2Entered.setText(v2S);
+            answerLabel.setText("              " + strAnswer);
+            jTextFieldValue1Entered.setText("             " +v1S);
+            jTextFieldValue2Entered.setText("             " +v2S);
+
+            String weHadString = "    ";
+            String weTookString = "    ";
+            String weHaveString = "    ";
+
+            for (int x=0; x<intValue1; x++){
+                weHadString = weHadString + "* ";
+            }
+            for (int x=0; x<intValue2; x++){
+                weTookString = weTookString + "* ";
+            }
+            for (int x=0; x<intValue2; x++){
+                weHaveString = weHaveString + "  ";
+            }
+            for (int x=0; x<intAnswer; x++){
+                weHaveString = weHaveString + "* ";
+            }
+
+            weHadResult.setText(weHadString);
+            weTookResult.setText(weTookString);
+            weHaveResult.setText(weHaveString);
+
+
             frame.setVisible(true);
         }
     }
