@@ -19,16 +19,10 @@ public class Addition {
     }
 
     public Addition(){
+
         JFrame frame = new JFrame("Assignment");
         //frame.setSize(500, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BufferedImage plus_img = null;
-        BufferedImage minus_img = null;
-
-        /*JPanel panel  = new JPanel();
-        panel.setBorder(BorderFactory.createTitledBorder("Addition"));
-        frame.add(panel);*/
-
 
         JPanel rootPanel = new JPanel(new MigLayout(""));
 
@@ -47,6 +41,9 @@ public class Addition {
         enterValuesPanel.setBackground(Color.green);
         JPanel showEnteredPanel = new JPanel(new MigLayout("debug"));
         //showEnteredPanel.setBackground(Color.gray);
+        JPanel buttonPanel = new JPanel(new MigLayout("debug"));
+        JPanel showHowPanel = new JPanel(new MigLayout("debug"));
+
 
         JLabel numValuesLabel = new JLabel("How many values do you want to add? ");
         JTextField numValues = new JTextField(20);
@@ -56,23 +53,41 @@ public class Addition {
         JTextField Value2 = new JTextField(5);
         JLabel Value3Label = new JLabel("Enter Value 3: ");
         JTextField Value3 = new JTextField(5);
+        JLabel Value4Label = new JLabel("Enter Value 3: ");
+        JTextField Value4 = new JTextField(5);
         JTextArea plus = new JTextArea("Plus\n  +");
         plus.setFont(new Font("tahoma", Font.BOLD, 14));
         plus.setEnabled(false);
         plus.setBackground(frame.getBackground());
+        JTextArea plus1 = new JTextArea(plus.getText());
+        plus1.setFont(plus.getFont());
+        plus1.setEnabled(false);
+        plus1.setBackground(frame.getBackground());
+        JTextArea plus2 = new JTextArea(plus.getText());
+        plus2.setFont(plus.getFont());
+        plus2.setEnabled(false);
+        plus2.setBackground(frame.getBackground());
+        JTextArea plus3 = new JTextArea(plus.getText());
+        plus3.setFont(plus.getFont());
+        plus3.setEnabled(false);
+        plus3.setBackground(frame.getBackground());
+        JTextArea plus4 = new JTextArea(plus.getText());
+        plus4.setFont(plus.getFont());
+        plus4.setEnabled(false);
+        plus4.setBackground(frame.getBackground());
+
         JTextArea equals = new JTextArea("Equels\n    =");
         equals.setFont(new Font("tahoma", Font.BOLD, 14));
         equals.setEnabled(false);
         equals.setBackground(frame.getBackground());
-        JTextArea plus1 = new JTextArea("Plus\n  +");
-        plus1.setFont(new Font("tahoma", Font.BOLD, 14));
-        plus1.setEnabled(false);
-        plus1.setBackground(frame.getBackground());
-        JTextArea equals1 = new JTextArea("Equels\n    =");
-        equals1.setFont(new Font("tahoma", Font.BOLD, 14));
+        JTextArea equals1 = new JTextArea(equals.getText());
+        equals1.setFont(equals.getFont());
         equals1.setEnabled(false);
         equals1.setBackground(frame.getBackground());
-
+        JTextArea equals2 = new JTextArea(equals.getText());
+        equals2.setFont(equals.getFont());
+        equals2.setEnabled(false);
+        equals2.setBackground(frame.getBackground());
 
         JTextField enterdValue1 = new JTextField();
         enterdValue1.setEnabled(false);
@@ -86,32 +101,63 @@ public class Addition {
         ans.setEnabled(false);
         JTextField ans1= new JTextField(5);
         ans1.setEnabled(false);
+        JTextField enterdValue1a = new JTextField(enterdValue1.getText());
+        enterdValue1a.setEnabled(false);
+        JTextField enterdValue2a = new JTextField(enterdValue2.getText());
+        enterdValue2a.setEnabled(false);
+        JTextField enterdValue3a = new JTextField(enterdValue3.getText());
+        enterdValue3a.setEnabled(false);
+        JTextField enterdValue4a = new JTextField(enterdValue4.getText());
+        enterdValue4a.setEnabled(false);
+        JTextField ansFinal= new JTextField(5);
+        ansFinal.setEnabled(false);
+
+        JButton showHow = new JButton("Show me how it's done!");
+        showHow.setFont(plus.getFont());
+        showHow.setEnabled(true);
 
         addition.add(topPanel, "pushx,center,wrap");
         topPanel.add(topText);
 
-        addition.add(numValuesLabel, "left, sg a, split 2"); //sg a (Size group a) is just a label
+        addition.add(numValuesLabel, "left, split 2"); //sg a (Size group a) is just a label
         addition.add(numValues, "left, wrap");
 
-        addition.add(enterValuesPanel, "grow, left, split 2, sg 3");
-        addition.add(showEnteredPanel, "grow, right, wrap, sg 3");
-        enterValuesPanel.add(Value1Label, "left, split 2"); //sg a (Size group a) is just a label
-        enterValuesPanel.add(Value1, "left, wrap");
-        enterValuesPanel.add(Value2Label, "left, split 2"); //sg a (Size group a) is just a label
-        enterValuesPanel.add(Value2, "left, wrap");
-        enterValuesPanel.add(Value3Label, "left, split 2"); //sg a (Size group a) is just a label
-        enterValuesPanel.add(Value3, "left, wrap");
+        addition.add(enterValuesPanel, "grow, push, left, split 2, sg 3");
+        addition.add(showEnteredPanel, "grow, push, wrap, sg 3");
+        enterValuesPanel.add(Value1Label, "right, split 2, growy, pushy, sg b"); //sg a (Size group a) is just a label
+        enterValuesPanel.add(Value1, "wrap, w 100!, h 50!, sg a");
+        enterValuesPanel.add(Value2Label, "center, split 2, growy, pushy"); //sg a (Size group a) is just a label
+        enterValuesPanel.add(Value2, "wrap, sg a");
+        enterValuesPanel.add(Value3Label, "center, split 2, growy, pushy"); //sg a (Size group a) is just a label
+        enterValuesPanel.add(Value3, "wrap, sg a");
+        enterValuesPanel.add(Value4Label, "center, split 2, growy, pushy"); //sg a (Size group a) is just a label
+        enterValuesPanel.add(Value4, "wrap, sg a");
 
-        showEnteredPanel.add(enterdValue1, "left, grow, sg 4, split 5");
+        showEnteredPanel.add(enterdValue1, "center, ,w 80!, h 80!,grow,push, sg 4, split 5");
         showEnteredPanel.add(plus, "center");
         showEnteredPanel.add(enterdValue2, "left, sg 4, grow");
         showEnteredPanel.add(equals, "center");
         showEnteredPanel.add(ans, "left, grow, sg 4, wrap");
-        showEnteredPanel.add(enterdValue3, "left, grow,sg 4, split 5");
+        showEnteredPanel.add(enterdValue3, "center, grow, push, sg 4, split 5");
         showEnteredPanel.add(plus1, "center");
         showEnteredPanel.add(enterdValue4, "left, sg 4, grow");
         showEnteredPanel.add(equals1, "center");
         showEnteredPanel.add(ans1, "left, grow, sg 4");
+
+        addition.add(buttonPanel, "center, wrap");
+        buttonPanel.add(showHow, "grow, push, center, wrap");
+
+        addition.add(showHowPanel, "right, grow, wrap, pushx");
+        showHowPanel.add(enterdValue1a, "center ,w 80!, h 80!, grow, push, sg 5, split 9");
+        showHowPanel.add(plus2, "grow, sg 5");
+        showHowPanel.add(enterdValue2a, "grow, sg 5");
+        showHowPanel.add(plus3, "grow, sg 5");
+        showHowPanel.add(enterdValue3a, "sg 5");
+        showHowPanel.add(plus4, "grow, sg 5");
+        showHowPanel.add(enterdValue4a, "grow, sg 5");
+        showHowPanel.add(equals2, "grow, sg 5");
+        showHowPanel.add(ansFinal, "grow, sg 5");
+
 
         frame.setContentPane(rootPanel);
         frame.pack();
