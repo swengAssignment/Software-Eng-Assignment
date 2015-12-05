@@ -1,6 +1,7 @@
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,7 +24,9 @@ public class Sub extends JPanel {
     JTextField jTextFieldValue1Entered;
     JTextField jTextFieldValue2Entered;
     JLabel minus;
+    JTextArea minusArea;
     JLabel equals;
+    JTextArea equalsArea;
     JTextField answerLabel;
     JLabel blank;
     JLabel blankR5B;
@@ -46,6 +49,10 @@ public class Sub extends JPanel {
     JTextField weHaveResult;
 
     public Sub(){
+
+        JPanel topPanel = new JPanel();
+        topPanel.setBackground(Color.orange);
+        //    JLabel topText = new JLabel("Math Check Addition lets you add up to four numbers at the same time!");
         header = new JLabel ("math check subtraction lets you visualize how it's done");
         //Row 2 has 1 element
         jLabelV1 = new JLabel ("              Enter Value 1:");
@@ -56,16 +63,27 @@ public class Sub extends JPanel {
         //Row5 has elements
         jTextFieldValue1Entered = new JTextField("0");
         jTextFieldValue2Entered = new JTextField("0");
-        minus = new JLabel ("                    Minus       -    ");
-        equals = new JLabel ("                   Equals      =    ");
+        minus = new JLabel ("Minus       -    ");
+        minusArea = new JTextArea("\n     Minus   \n        +   ");
+        //  minusArea.setFont(new Font("tahoma", Font.BOLD, 14));
+        minusArea.setEnabled(false);
+        minusArea.setBackground(Color.ORANGE);
+        minusArea.setFont(new Font("Black", Font.ITALIC, 16));
+
+        equals = new JLabel ("     Equals      =    ");
+        equalsArea = new JTextArea("\n    Equals   \n       =   ");
+        equalsArea.setEnabled(false);
+        equalsArea.setBackground(Color.ORANGE);
+        equalsArea.setFont(new Font("Black", Font.ITALIC, 16));
+
         answerLabel = new JTextField("");
         blank = new JLabel("");
         /****************************/
-        weHad = new JLabel("\t\t        We Had this many apples:");
+        weHad =  new JLabel("We Had this many Apples:");
         weHadResult = new JTextField("");
-        weTook = new JLabel("\t\t        We Took away this many apples:");
+        weTook = new JLabel(" We Took away this many:");
         weTookResult = new JTextField("");
-        weHave = new JLabel("\t\t        We now have this many apples:");
+        weHave = new JLabel("   We now have this many:");
         weHaveResult = new JTextField("");
         /*******************************/
         subPanel = new JPanel();
@@ -80,74 +98,102 @@ public class Sub extends JPanel {
 //        });
 
         showMeHowitsDoneButton.addActionListener(new ActionListener() {
-                                                     @Override
-                                                     public void actionPerformed(ActionEvent e) {
-                                                         weHadResult.setText(null);
-                                                         weTookResult.setText(null);
-                                                         weHaveResult.setText(null);
-                                                         String v1S = jTextFieldValue1.getText();
-                                                         intValue1 = Integer.parseInt(v1S);
-                                                         String v2S = jTextFieldValue2.getText();
-                                                         intValue2 = Integer.parseInt(v2S);
-                                                         intAnswer = intValue1 - intValue2;
-                                                         String strAnswer = Integer.toString(intAnswer);
-                                                                     answerLabel.setText("       " + strAnswer);
-                                                         jTextFieldValue1Entered.setText("       " + v1S);
-                                                         jTextFieldValue2Entered.setText("       " + v2S);
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                weHadResult.setText(null);
+                weTookResult.setText(null);
+                weHaveResult.setText(null);
+                String v1S = jTextFieldValue1.getText();
+                intValue1 = Integer.parseInt(v1S);
+                String v2S = jTextFieldValue2.getText();
+                intValue2 = Integer.parseInt(v2S);
+                intAnswer = intValue1 - intValue2;
+                String strAnswer = Integer.toString(intAnswer);
+                answerLabel.setText("       " + strAnswer);
+                jTextFieldValue1Entered.setText("       " + v1S);
+                jTextFieldValue2Entered.setText("       " + v2S);
 
-                                                         String weHadString = "    ";
-                                                         String weTookString = "    ";
-                                                         String weHaveString = "    ";
+                String weHadString = "    ";
+                String weTookString = "    ";
+                String weHaveString = "    ";
 
-                                                         for (int x = 0; x < intValue1; x++) {
-                                                             weHadString = weHadString + "* ";
-                                                         }
-                                                         for (int x = 0; x < intValue2; x++) {
-                                                             weTookString = weTookString + "* ";
-                                                         }
-                                                         for (int x = 0; x < intValue2; x++) {
-                                                             weHaveString = weHaveString + "--";
-                                                         }
-                                                         for (int x = 0; x < intAnswer; x++) {
-                                                             weHaveString = weHaveString + "* ";
-                                                         }
-                                                         weHadResult.setText(weHadString);
-                                                         weTookResult.setText(weTookString);
-                                                         weHaveResult.setText(weHaveString);
-                                                     }
-                                                 });
+                for (int x = 0; x < intValue1; x++) {
+                    weHadString = weHadString + "* ";
+                }
+                for (int x = 0; x < intValue2; x++) {
+                    weTookString = weTookString + "* ";
+                }
+                for (int x = 0; x < intValue2; x++) {
+                    weHaveString = weHaveString + "--";
+                }
+                for (int x = 0; x < intAnswer; x++) {
+                    weHaveString = weHaveString + "* ";
+                }
+                weHadResult.setText(weHadString);
+                weTookResult.setText(weTookString);
+                weHaveResult.setText(weHaveString);
+            }
+        });
         //row 1
+
+
+
+
         setLayout(new MigLayout(""));
-        add(header, "span, pushx, growx, pushy, growy, gapleft 30%, gapright 10%, wrap");
-        /*************************************************/
+
+        add(topPanel,"wrap, gap left 30%");
+        topPanel.add(header, "span, pushx, growx, pushy, growy, gapleft 30%, gapright 10%, wrap");
+
+
+        //     add(header, "span, pushx, growx, pushy, growy, gapleft 30%, gapright 10%, wrap");
+        /*************************************************************************************/
+        JPanel midPanel = new JPanel(new MigLayout("debug"));
+        midPanel.setBackground(Color.GREEN);
+
+        add(midPanel, "pushx, growx ,center,wrap");
+
         //row 2
-        add(jLabelV1, " gaptop 10%, right, pushy, growy");
-        add(jTextFieldValue1, "gaptop 10%, gapbottom 2%, pushx, growx, pushy, growy");
-        add(blank, "span 1 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
-        add(jTextFieldValue1Entered, "span 1 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
-        add(minus, "span 1 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
-        add(jTextFieldValue2Entered, "span 2 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
-        add(equals, "span 2 2,pushx, growx,  pushy, growy, gaptop 10%, gapbottom 10%");
-        add(answerLabel, "span 2 2, pushx, growx, , pushy, growy, wrap, gapright 5%, gaptop 10%, gapbottom 10%");
-        add(jLabelV2, "shrink 70, right, gapbottom 10%, pushy, growy");
-        add(jTextFieldValue2, "gaptop 2%, gapbottom 10%, pushx, growx, wrap, pushy, growy");
+        midPanel.add(jLabelV1, "sg a, gaptop 10%, right, pushy, growy");
+        midPanel.add(jTextFieldValue1, "sg a,gaptop 10%, gapbottom 2%, pushx, growx, pushy, growy");
+        midPanel.add(blank, "span 1 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
+        midPanel.add(jTextFieldValue1Entered, "sg a, span 1 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
+        //   add(minus, "span 1 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
+
+        midPanel.add(minusArea, "  shrink 70, span 1 2, pushy, growy, gaptop 25%, gapbottom 25%");
+        midPanel.add(jTextFieldValue2Entered, "sg a, span 2 2,pushx, growx, pushy, growy, gaptop 10%, gapbottom 10%");
+        //  add(equals, "span 2 2, pushx, growx,  pushy, growy, gaptop 10%, gapbottom 10%");
+        midPanel.add(equalsArea, " shrink 70, span 2 2,  pushy, growy, gaptop 25%, gapbottom 25%");
+
+        midPanel.add(answerLabel, "sg a, span 2 2, pushx, growx, , pushy, growy, wrap, gapright 5%, gaptop 10%, gapbottom 10%");
+        midPanel.add(jLabelV2, "sg a, shrink 70, right, gapbottom 10%, pushy, growy");
+        midPanel.add(jTextFieldValue2, "sg a, gaptop 2%, gapbottom 10%, pushx, growx, wrap, pushy, growy");
         /***************************************************/
         //Row 3
-        add(showMeHowitsDoneButton, "gap 100, span, pushx, growx, pushy, growy, gapleft 10%, gapright 10%, gapbottom 10%, wrap");
+        midPanel.add(showMeHowitsDoneButton, "gap 100, span, pushx, growx, pushy, growy, gapleft 10%, gapright 10%, gapbottom 10%, wrap");
         //panel.add(row3Col2B, "wrap");
         //row 4
-        add(weHad, "shrink 40, pushx, growx,  pushy, growy");
-        add(weHadResult, "pushx, growx,  pushy, growy, spanx, wrap");
+        /**********************************************************************************************************/
+        /**********************************************************************************************************/
+        JPanel botPanel = new JPanel(new MigLayout("debug"));
+        // JPanel botPanel = new JPanel();
+        botPanel.setBackground(Color.GREEN);
+
+        add(botPanel, "push, grow ,center,wrap");
+
+
+        botPanel.add(weHad,  "right, growy, pushy, sg b");
+
+        botPanel.add(weHadResult, "pushx, growx,  pushy, growy, spanx, wrap");
         //row 5
-        add(weTook, "shrink 40, pushx, growx, pushy, growy");
-        add(weTookResult, "pushx, growx, spanx,  pushy, growy, wrap");
+        botPanel.add(weTook, "right, growy, pushy, sg b");
+        botPanel.add(weTookResult, "pushx, growx, spanx,  pushy, growy, wrap");
         //row 6
-        add(weHave, "shrink 40, pushx, growx,  pushy, growy");
-        add(weHaveResult, "pushx, growx, spanx,  pushy, growy, wrap");
+        botPanel.add(weHave, "right, growy, pushy, sg b");
+        botPanel.add(weHaveResult, "pushx, growx, spanx,  pushy, growy, wrap");
         /**********************************/
-        JLabel filler = new JLabel("label");
-        filler.setHorizontalAlignment(JLabel.CENTER);
-        add(filler);
+        // JLabel filler = new JLabel("label");
+        //   filler.setHorizontalAlignment(JLabel.CENTER);
+        //   add(filler);
     }
 
     public void actionPerformedSubtraction(ActionEvent e) {
@@ -155,7 +201,7 @@ public class Sub extends JPanel {
         weHadResult.setText("test");
     }
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

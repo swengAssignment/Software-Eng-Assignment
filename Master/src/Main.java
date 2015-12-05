@@ -14,14 +14,14 @@ public class Main extends JFrame{
         JPanel panel = new JPanel();
         frame.add(panel);
         JTabbedPane tab = new JTabbedPane();
-       // tab.add("Addition tab", new Addition());
+        tab.add("Addition tab", new Addition());
         tab.add("Subtraction tab", new Sub());
         tab.add("Multiplication tab", new Multi());
         tab.add("LinearGraphs tab", new Multi());
         frame.add(tab);
        // frame.pack();
         frame.setLocationRelativeTo(null);
-        frame.setSize(840, 480);
+        frame.setSize(940, 580);
         frame.setVisible(true);
     }
 }
