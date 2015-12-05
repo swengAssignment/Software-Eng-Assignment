@@ -47,16 +47,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.789731">
-              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="32" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#203#204#0" expanded="true" />
                 <element signature="e#229#230#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Addition.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Addition.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41564792">
+              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,10 +90,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/TabbedPaneDemo.java" />
         <option value="$PROJECT_DIR$/src/Master.java" />
-        <option value="$PROJECT_DIR$/src/Addition.java" />
         <option value="$PROJECT_DIR$/src/Multi.java" />
         <option value="$PROJECT_DIR$/src/Sub.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Addition.java" />
       </list>
     </option>
   </component>
@@ -479,12 +489,12 @@
       <workItem from="1448296900777" duration="3393000" />
       <workItem from="1448304088823" duration="551000" />
       <workItem from="1448364705753" duration="3962000" />
-      <workItem from="1449325355591" duration="3294000" />
+      <workItem from="1449325355591" duration="3783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11200000" />
+    <option name="totallyTimeSpent" value="11689000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
@@ -555,13 +565,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.789731">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#203#204#0" expanded="true" />
             <element signature="e#229#230#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Addition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41564792">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
