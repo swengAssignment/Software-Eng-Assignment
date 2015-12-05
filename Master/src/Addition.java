@@ -32,7 +32,7 @@ public class Addition extends JPanel{
         /*************************************/
 
        // JTabbedPane tab = new JTabbedPane(JTabbedPane.TOP);
-        JPanel addition = new JPanel(new MigLayout("debug"));
+        JPanel addition = new JPanel(new MigLayout(""));
         /******************************/
         setLayout(new MigLayout(""));
         /*****************************/
@@ -45,12 +45,12 @@ public class Addition extends JPanel{
         topPanel.setBackground(Color.orange);
         JLabel topText = new JLabel("Math Check Addition lets you add up to four numbers at the same time!");
 
-        JPanel enterValuesPanel = new JPanel(new MigLayout("debug"));
+        JPanel enterValuesPanel = new JPanel(new MigLayout(""));
         enterValuesPanel.setBackground(Color.green);
-        JPanel showEnteredPanel = new JPanel(new MigLayout("debug"));
+        JPanel showEnteredPanel = new JPanel(new MigLayout(""));
         //showEnteredPanel.setBackground(Color.gray);
-        JPanel buttonPanel = new JPanel(new MigLayout("debug"));
-        JPanel showHowPanel = new JPanel(new MigLayout("debug"));
+        JPanel buttonPanel = new JPanel(new MigLayout(""));
+        JPanel showHowPanel = new JPanel(new MigLayout(""));
 
 
         JLabel numValuesLabel = new JLabel("How many values do you want to add? ");
@@ -70,36 +70,36 @@ public class Addition extends JPanel{
         Value4.setFont(numValues.getFont());
         JTextArea plus = new JTextArea("Plus\n  +");
         plus.setFont(new Font("tahoma", Font.BOLD, 14));
-        plus.setEnabled(false);
+        plus.setEnabled(true);
       //  plus.setBackground(frame.getBackground());
         JTextArea plus1 = new JTextArea(plus.getText());
         plus1.setFont(plus.getFont());
-        plus1.setEnabled(false);
+        plus1.setEnabled(true);
     //    plus1.setBackground(frame.getBackground());
         JTextArea plus2 = new JTextArea(plus.getText());
         plus2.setFont(plus.getFont());
-        plus2.setEnabled(false);
+        plus2.setEnabled(true);
    //     plus2.setBackground(frame.getBackground());
         JTextArea plus3 = new JTextArea(plus.getText());
         plus3.setFont(plus.getFont());
-        plus3.setEnabled(false);
+        plus3.setEnabled(true);
      //   plus3.setBackground(frame.getBackground());
         JTextArea plus4 = new JTextArea(plus.getText());
         plus4.setFont(plus.getFont());
-        plus4.setEnabled(false);
+        plus4.setEnabled(true);
     //    plus4.setBackground(frame.getBackground());
 
         JTextArea equals = new JTextArea("Equals\n    =");
         equals.setFont(new Font("tahoma", Font.BOLD, 14));
-        equals.setEnabled(false);
+        equals.setEnabled(true);
     //    equals.setBackground(frame.getBackground());
         JTextArea equals1 = new JTextArea(equals.getText());
         equals1.setFont(equals.getFont());
-        equals1.setEnabled(false);
+        equals1.setEnabled(true);
    //     equals1.setBackground(frame.getBackground());
         JTextArea equals2 = new JTextArea(equals.getText());
         equals2.setFont(equals.getFont());
-        equals2.setEnabled(false);
+        equals2.setEnabled(true);
      //   equals2.setBackground(frame.getBackground());
 
         final JTextField enterdValue1 = new JTextField();
@@ -253,13 +253,36 @@ public class Addition extends JPanel{
         showHow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                            enterdValue1.setText(Value1.getText());
+            enterdValue2.setText(Value2.getText());
+            enterdValue3.setText(Value3.getText());
+            enterdValue4.setText(Value4.getText());
+            if (!enterdValue1.getText().isEmpty() && !enterdValue2.getText().isEmpty()) {
+                ans.setText(String.valueOf(Integer.parseInt(enterdValue1.getText()) + Integer.parseInt(enterdValue2.getText())));
+                enterdValue1.setEnabled(false);
+                enterdValue2.setEnabled(false);
+            }
+            if (!enterdValue3.getText().isEmpty() && !enterdValue4.getText().isEmpty()) {
+                ans1.setText(String.valueOf(Integer.parseInt(enterdValue3.getText()) + Integer.parseInt(enterdValue4.getText())));
+                enterdValue3.setEnabled(false);
+                enterdValue4.setEnabled(false);
+            }
+           //     ans1.setText("     " +String.valueOf(Integer.parseInt(enterdValue3.getText()) + Integer.parseInt(enterdValue4.getText())));
+              //  ans.setText("     " +String.valueOf(Integer.parseInt(enterdValue3.getText()) + Integer.parseInt(enterdValue4.getText())));
 
-                enterdValue1a.setText(enterdValue1.getText());
-                enterdValue2a.setText(enterdValue2.getText());
-                enterdValue3a.setText(enterdValue3.getText());
-                enterdValue4a.setText(enterdValue4.getText());
+                enterdValue1a.setText("     " + enterdValue1.getText());
+                enterdValue2a.setText("     " +enterdValue2.getText());
+                enterdValue3a.setText("     " +enterdValue3.getText());
+                enterdValue4a.setText("     " +enterdValue4.getText());
 
-                ansFinal.setText(String.valueOf(Integer.parseInt(ans.getText()) + Integer.parseInt(ans1.getText())));
+                enterdValue1.setText("     " + enterdValue1.getText());
+                enterdValue2.setText("     " +enterdValue2.getText());
+                enterdValue3.setText("     " +enterdValue3.getText());
+                enterdValue4.setText("     " +enterdValue4.getText());
+
+                ansFinal.setText("        " +String.valueOf(Integer.parseInt(ans.getText()) + Integer.parseInt(ans1.getText())));
+                ans.setText("    " + String.valueOf(Integer.parseInt(ans.getText())));
+                ans1.setText("    " + String.valueOf(Integer.parseInt(ans1.getText())));
                 showHow.setEnabled(false);
             }
         });

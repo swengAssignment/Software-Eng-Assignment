@@ -53,7 +53,7 @@ public class Sub extends JPanel {
         JPanel topPanel = new JPanel();
         topPanel.setBackground(Color.orange);
         //    JLabel topText = new JLabel("Math Check Addition lets you add up to four numbers at the same time!");
-        header = new JLabel ("math check subtraction lets you visualize how it's done");
+        header = new JLabel ("Math Check Subtraction lets you visualize how it's done!");
         //Row 2 has 1 element
         jLabelV1 = new JLabel ("              Enter Value 1:");
         jTextFieldValue1 = new JTextField( "");
@@ -61,12 +61,15 @@ public class Sub extends JPanel {
         jLabelV2 = new JLabel ("              Enter Value 2:");
         jTextFieldValue2 = new JTextField("");
         //Row5 has elements
-        jTextFieldValue1Entered = new JTextField("0");
-        jTextFieldValue2Entered = new JTextField("0");
+        jTextFieldValue1Entered = new JTextField("");
+        jTextFieldValue2Entered = new JTextField("");
+        jTextFieldValue1Entered.setEnabled(false);
+        jTextFieldValue2Entered.setEnabled(false);
+
         minus = new JLabel ("Minus       -    ");
         minusArea = new JTextArea("\n     Minus   \n        +   ");
         //  minusArea.setFont(new Font("tahoma", Font.BOLD, 14));
-        minusArea.setEnabled(false);
+        minusArea.setEnabled(true);
         minusArea.setBackground(Color.ORANGE);
         minusArea.setFont(new Font("Black", Font.ITALIC, 16));
 
@@ -75,6 +78,7 @@ public class Sub extends JPanel {
         equalsArea.setEnabled(false);
         equalsArea.setBackground(Color.ORANGE);
         equalsArea.setFont(new Font("Black", Font.ITALIC, 16));
+        equalsArea.setEnabled(true);
 
         answerLabel = new JTextField("");
         blank = new JLabel("");
@@ -90,7 +94,7 @@ public class Sub extends JPanel {
         subPanel.setBorder(BorderFactory.createTitledBorder("Subtraction tab"));
         subPanel.setLayout(new MigLayout(""));
         //Row 5 has 1 element
-        showMeHowitsDoneButton = new JButton("Show me how its done");
+        showMeHowitsDoneButton = new JButton("Show me how its done!");
 //        showMeHowitsDoneButton.addActionListener(new ActionListener() {
 //            public void actionPerformed(ActionEvent evt) {
 //                actionPerformedSubtraction(evt);
@@ -100,6 +104,9 @@ public class Sub extends JPanel {
         showMeHowitsDoneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                jTextFieldValue2Entered.setEnabled(true);
+                jTextFieldValue1Entered.setEnabled(true);
+                equalsArea.setEnabled(true);
                 weHadResult.setText(null);
                 weTookResult.setText(null);
                 weHaveResult.setText(null);
@@ -109,13 +116,13 @@ public class Sub extends JPanel {
                 intValue2 = Integer.parseInt(v2S);
                 intAnswer = intValue1 - intValue2;
                 String strAnswer = Integer.toString(intAnswer);
-                answerLabel.setText("       " + strAnswer);
-                jTextFieldValue1Entered.setText("       " + v1S);
-                jTextFieldValue2Entered.setText("       " + v2S);
+                            answerLabel.setText("                  " + strAnswer);
+                jTextFieldValue1Entered.setText("                  " + v1S);
+                jTextFieldValue2Entered.setText("                  " + v2S);
 
-                String weHadString = "    ";
-                String weTookString = "    ";
-                String weHaveString = "    ";
+                String weHadString = "";
+                String weTookString = "";
+                String weHaveString = "";
 
                 for (int x = 0; x < intValue1; x++) {
                     weHadString = weHadString + "* ";
@@ -147,7 +154,7 @@ public class Sub extends JPanel {
 
         //     add(header, "span, pushx, growx, pushy, growy, gapleft 30%, gapright 10%, wrap");
         /*************************************************************************************/
-        JPanel midPanel = new JPanel(new MigLayout("debug"));
+        JPanel midPanel = new JPanel(new MigLayout(""));
         midPanel.setBackground(Color.GREEN);
 
         add(midPanel, "pushx, growx ,center,wrap");
@@ -169,12 +176,12 @@ public class Sub extends JPanel {
         midPanel.add(jTextFieldValue2, "sg a, gaptop 2%, gapbottom 10%, pushx, growx, wrap, pushy, growy");
         /***************************************************/
         //Row 3
-        midPanel.add(showMeHowitsDoneButton, "gap 100, span, pushx, growx, pushy, growy, gapleft 10%, gapright 10%, gapbottom 10%, wrap");
+        midPanel.add(showMeHowitsDoneButton, " span, push, grow, pushy, growy, gapleft 20%, gapright 20%, wrap");
         //panel.add(row3Col2B, "wrap");
         //row 4
         /**********************************************************************************************************/
         /**********************************************************************************************************/
-        JPanel botPanel = new JPanel(new MigLayout("debug"));
+        JPanel botPanel = new JPanel(new MigLayout(""));
         // JPanel botPanel = new JPanel();
         botPanel.setBackground(Color.GREEN);
 
