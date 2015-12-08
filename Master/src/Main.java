@@ -17,7 +17,7 @@ public class Main extends JFrame{
         tab.add("Addition tab", new Addition());
         tab.add("Subtraction tab", new Sub());
         tab.add("Multiplication tab", new Multi());
-        tab.add("LinearGraphs tab", new Multi());
+        tab.add("LinearGraphs tab", new LinearGraph());
         frame.add(tab);
        // frame.pack();
         frame.setLocationRelativeTo(null);

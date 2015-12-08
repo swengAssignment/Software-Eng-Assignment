@@ -1,4 +1,4 @@
-package lineargraph;
+
 import net.miginfocom.swing.MigLayout;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -10,7 +10,6 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.chart.plot.PlotOrientation;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -22,7 +21,7 @@ public class LinearGraph extends JPanel{
     JTextField txt1 = new JTextField();
     public LinearGraph() {
 
-        JButton update = new JButton("Update");
+        JButton update = new JButton("Show graph");
         JButton reset = new JButton("Reset");
         MigLayout mg = new MigLayout("debug,wrap","[][]","[][]");
         setLayout(mg);
@@ -60,7 +59,7 @@ public class LinearGraph extends JPanel{
         customizeChart(chart);
 
         // saves the chart as an image files
-        File imageFile = new File("XYLineChart.png");
+        File imageFile = new File("XYChart.png");
         int width = 640;
         int height = 480;
 
@@ -76,27 +75,20 @@ public class LinearGraph extends JPanel{
     private XYDataset createDataset() {
         XYSeriesCollection dataset = new XYSeriesCollection();
         XYSeries series1 = new XYSeries("Object 1");
-        String input= txt1.getText();
 
-        String words[] = input.split("x|X|Y|y|=|\\+");
-        for (int i = 0; i < words.length; i++) {
-            System.out.println(words[i]);
-        }
-        float X =Integer.parseInt(words[0]);
-        float Y = Integer.parseInt(words[2]);
-        float ans = Integer.parseInt(words[4]);
+        float X =10;
+        float Y = 10;
 
-        float xat0 = ans/Y;
-        float yat0 = ans/X;
+       float ans = 5;
+
+        float xat0 = ans/10;
+        float yat0 = ans/10;
         float xat20 = ans/Y*20;
         float yat20 = ans/X*20;
         series1.add(xat0, yat0);
         series1.add(xat20, yat20);
 
-
-
         dataset.addSeries(series1);
-
 
         return dataset;
     }
