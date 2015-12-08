@@ -1,35 +1,48 @@
 package lineargraph;
-
-
-import javax.swing.JFrame;
-
+import net.miginfocom.swing.MigLayout;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.chart.plot.PlotOrientation;
 
-public class JFreeChartLineChartExample extends JFrame {
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
-    private static final long serialVersionUID = 20L;
+public class LinearGraph extends JPanel{
+    JTextField txt1 = new JTextField();
+    public LinearGraph() {
 
-    public JFreeChartLineChartExample(String applicationTitle, String chartTitle) {
-        super(applicationTitle);
+        JButton update = new JButton("Update");
+        JButton reset = new JButton("Reset");
+        MigLayout mg = new MigLayout("debug,wrap","[][]","[][]");
+        setLayout(mg);
 
-        // based on the dataset we create the chart
-        JFreeChart pieChart = ChartFactory.createXYLineChart(chartTitle, "X Axis", 
-        		"Y Axis", createDataset(),PlotOrientation.VERTICAL, true, true, false);
+        add(txt1,"growx,pushx");
+        add(update,"left,wrap");
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                repaint();
+                //createChartPanel().setVisible(false);
+                add(createChartPanel(), "span 2");
+                createChartPanel().setSize(150,150);
+                repaint();
+                JLabel tag = new JLabel(txt1.getText());
+                add(tag,"growx,pushx, span 2,center,wrap");
+            }
+        });
 
-        // Adding chart into a chart panel
-        ChartPanel chartPanel = new ChartPanel(pieChart);
 
-        // settind default size
-        chartPanel.setPreferredSize(new java.awt.Dimension(500, 500));
-
-        // add to contentPane
-        setContentPane(chartPanel);
     }
 
     private XYDataset createDataset() {
